@@ -1,12 +1,12 @@
 import './App.css'
-/*import {Counter} from "./Counter.tsx";*/
+import {Counter} from "./Counter.tsx";
 
 function App() {
 
 
   return (
       <div>
-          {/*<Counter/>*/}
+          <Counter/>
       </div>
 
   )
