@@ -1,12 +1,17 @@
+
+
+
 type TittlePropsType = {
-    result: number
+    result: number;
     className?: string
+    isSet: boolean
 }
 
-export const Display = ({result, className}:TittlePropsType) => {
+export const Display = ({result, className, isSet}:TittlePropsType) => {
+
     return (
         <div>
-            <h1 className={className}>{result}</h1>
+            <span className={className}>{isSet ? result : <span className={"span"}>enter values and press 'set'</span>}</span>
         </div>
     );
 };

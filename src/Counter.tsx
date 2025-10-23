@@ -1,38 +1,46 @@
 import {Button} from "./components/Button.tsx";
-import {useState} from "react";
 import {Display} from "./components/Display.tsx";
 
+type TypeProps = {
+    maxValue: number;
+    startValue: number;
+    counter: number;
+    incrCounter: () => void
+    resetCounter: () => void
+    isSet: boolean;
+}
 
-export const Counter = () => {
-    const [counter, setCounter] = useState(0);
+export const Counter = ({maxValue, startValue, counter, incrCounter, resetCounter, isSet}: TypeProps) => {
 
-    const incrCounter = () => {
-        if (counter < 5) {
-            setCounter(counter + 1);
-        }
+
+    const incrCounterHandler = () => {
+        incrCounter()
     }
 
-    const resetCounter = () => {
-        setCounter(0);
+    const resetCounterHandler = () => {
+        resetCounter()
     }
+
 
     return (
         <div className="wrapper">
             <div className="display">
-                <Display className={counter === 5 ? 'active' : ""}
-                         result={counter}/>
+
+
+                {startValue <= -1 || maxValue <= startValue ? <span className={"error"}>Incorrect value!</span> : <Display className={counter === maxValue ? 'active' : "number"}
+                                                                          result={counter} isSet={isSet} />}
             </div>
             <div className="buttons">
                 <Button
                     className={"button"}
-                    disabled={counter === 5}
+                    disabled={!isSet || counter >= maxValue}
                     name={"inc"}
-                    onClickFunction={incrCounter}/>
+                    onClickFunction={incrCounterHandler}/>
                 <Button
                     className={"button"}
-                    disabled={counter === 0}
+                    disabled={!isSet}
                     name={"reset"}
-                    onClickFunction={resetCounter}/>
+                    onClickFunction={resetCounterHandler}/>
             </div>
         </div>
     )
