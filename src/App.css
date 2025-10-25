@@ -7,6 +7,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    box-sizing: border-box;
 }
 
 .App {
@@ -22,7 +23,7 @@
 
 .wrapper {
     background-color: lightgray;
-    width: 500px;
+    width: 300px;
     height: 500px;
     display: flex;
     flex-direction: column;
@@ -34,13 +35,14 @@
 }
 
 .buttons {
+    box-sizing: border-box;
     margin-top: 75px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 75px;
-    width: 400px;
-    height: 100px;
+    gap: 12px;
+    width: 280px;
+    height: 80px;
     border: 5px solid black;
     border-radius: 15px;
     padding: 10px 20px;
@@ -48,21 +50,26 @@
 }
 
 .button {
-    font-size: 20px;
+    box-sizing: border-box;
+    line-height: 1;
+    padding: 3px;
+    font-size: 17px;
+    text-align: center;
     background-color: lightgray;
-    width: 120px;
+    width: 80px;
     border: 5px solid black;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
 .display {
+    box-sizing: border-box;
     font-size: 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 150px;
-    width: 440px;
+    width: 280px;
     background-color: #e6e5e5;
     border: 5px solid black;
     border-radius: 15px;
@@ -73,8 +80,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 100px;
-    margin: 10px;
+    gap: 50px;
+    margin: 5px;
 }
 
 .number {
@@ -89,7 +96,7 @@
 
 .label {
     display: block;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .Input {
@@ -107,7 +114,6 @@
 
 .ErrorInput {
     display: block;
-    box-sizing: border-box;
     font-size: 25px;
     font-weight: bold;
     width: 100px;
