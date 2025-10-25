@@ -8,9 +8,10 @@ type TypeProps = {
     incrCounter: () => void
     resetCounter: () => void
     isSet: boolean;
+    handlerSet: () => void;
 }
 
-export const Counter = ({maxValue, startValue, counter, incrCounter, resetCounter, isSet}: TypeProps) => {
+export const Counter = ({maxValue, startValue, counter, incrCounter, resetCounter, isSet, handlerSet}: TypeProps) => {
 
 
     const incrCounterHandler = () => {
@@ -27,8 +28,9 @@ export const Counter = ({maxValue, startValue, counter, incrCounter, resetCounte
             <div className="display">
 
 
-                {startValue <= -1 || maxValue <= startValue ? <span className={"error"}>Incorrect value!</span> : <Display className={counter === maxValue ? 'active' : "number"}
-                                                                          result={counter} isSet={isSet} />}
+                {maxValue <= startValue || startValue <= -1 ? <span className={"error"}>Incorrect value!</span> :
+                    <Display className={counter === maxValue ? 'active' : "number"}
+                             result={counter} isSet={isSet}/>}
             </div>
             <div className="buttons">
                 <Button
@@ -41,6 +43,11 @@ export const Counter = ({maxValue, startValue, counter, incrCounter, resetCounte
                     disabled={!isSet}
                     name={"reset"}
                     onClickFunction={resetCounterHandler}/>
+                <Button
+                    className={"button"}
+                    disabled={!isSet}
+                    name={"set"}
+                    onClickFunction={handlerSet}/>
             </div>
         </div>
     )
