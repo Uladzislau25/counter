@@ -33,14 +33,14 @@ export const SetCounter = ({
         }
         setIsSet(false);
     }
-    const er = startValue <= -1 || maxValue <= startValue? 'ErrorInput' : 'Input';
+    const er = startValue <= -1 || maxValue <= startValue ? 'ErrorInput' : 'Input';
 
     return (
         <div className="wrapper">
             <div className="display">
                 <div className={"field"}>
                     <label className={"label"}> max value:</label>
-                    <input id={'maxValue'} className={er}   onChange={handleChange} value={maxValue}
+                    <input id={'maxValue'} className={er} onChange={handleChange} value={maxValue}
                            type={"number"}/>
                 </div>
                 <div className={"field"}>
